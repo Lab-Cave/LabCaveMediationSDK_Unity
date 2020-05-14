@@ -146,7 +146,7 @@ You can use the following methods:
 LabCaveMediation.SetConsentStatus(true);
 ```
 ### IAPs Event (SDK 2.12 and above)
->We offer the following optional methods to record purchase events (and associate revenue to them) and calculate your LTV (Ads + IAPs). This feature is completely independent of the ads integration.
+>We offer the following optional methods to record purchase events (and associate revenue to them) and calculate your LTV (Ads + IAPs). Make sure you only send us IAPs that have been correctly validated, otherwise the LTV calculation might get affected. This feature is completely independent of the ads integration.
 ```java
 public static void PurchaseEvent(float revenue, string currency, string productId, string orderId){}
    
