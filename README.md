@@ -1,5 +1,5 @@
 ##  LabCave Mediation Unity SDK
-The current version (2.12.0) is compatible with Unity 5, iOS 9(Xcode 11) and above and Android 17 and above. It contains Android SDK 2.12.0 and iOS SDK 2.12.0. 
+The current version (2.12.2) is compatible with Unity 5, iOS 9(Xcode 11) and above and Android 17 and above. It contains Android SDK 2.12.2 and iOS SDK 2.12.2. 
 >**Xcode11 is mandatory for building the project**
  ## Adding Lab Cave Mediation SDK to your Project
 Please follow these steps:
@@ -39,7 +39,10 @@ In case of **iOS**, you have to add a *GADApplicationIdentifier* key with a stri
 
 ## Initialize the SDK
 The SDK Initialisation must be in a **Start** method. Avoid using it in an **Awake** method. The initialisation can be done in two ways:
-1. Initialize each Ad Format separately at different points of the game. ***Recommended*** to minimise the number of ads preloaded without showing an impression.
+1. Initialize each Ad Format separately at different points of the game. ***Recommended*** to minimise the number of ads preloaded without showing an impression. 
+
+**Banner ads will only load when you call the show method. Banner is not preloaded.**
+
 > If you chose this option, make sure you don't call the *InitWithAppId* method following another Init. This might cause issues with initialisation.
 You can bundle them in the same method
 ```cs
@@ -55,6 +58,10 @@ The appHash is the hash ID of your app, you can get it in https://mediation.labc
 ## SDK Listeners
 The SDK offers a listener where you can receive the events of the ads.
 ```cs
+ 	// Will be called when the mediation is already initiated with success or failure
+	public void OnMediationInit(bool init)
+	{
+	}
     // Will be called when any ad is loaded, it will tell you the type LabCaveMediation.AdTypes.BANNER, LabCaveMediation.AdTypes.INSTERSTITIAL and LabCaveMediation.AdTypes.REWARDED_VIDEO
 	public void OnMediationLoaded (LabCaveMediation.AdTypes adType)
 	{
