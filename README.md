@@ -33,6 +33,15 @@ In case of **iOS**, you have to add a *GADApplicationIdentifier* key with a stri
 >
 >You need to add the file named "Tapjoy.embeddedframework" to your XCode project, in XCode Files/Add files to ...
 
+**IMPORTANT IF YOU ARE USING VUNGLE**
+>
+>In android you need to add these lines to your mainTemplate.gradle
+```java
+implementation ('androidx.core:core:1.1.0'){
+           exclude group: 'com.android.support', module:'support-v4'
+        }
+        implementation "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
+```
 >**IMPORTANT IF YOU ARE BUILDING FOR IOS**
 >
 >If you are using pangle, applovin or fyber, these networks include bundle files (.bundle). Please add these files to your XCode project by Files/Add files to ...
